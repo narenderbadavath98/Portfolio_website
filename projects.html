@@ -1,0 +1,163 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Narender Badavath</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Narender Badavath</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <p>Here are some of the projects I've worked on:</p>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-item" onclick="showProjectDetails(
+                    'QR Code Based Attendance System',
+                    'Developed a contactless attendance system using QR code scanning and python (OpenCV), eliminating manual errors and improving speed and accuracy.',
+                    ['Django', 'MySQL', 'Python', 'SQLyog'],
+                    'https://github.com/yourusername/langchain-chatbot',
+                    'https://your-chatbot-demo.com'
+                )">
+                    <h3>QR Code Based Attendance System</h3>
+                    <p>Designed and implemented a secure admin-user interface using Django for real-time attendance tracking and data management with MySQL.</p>
+                    <a href="https://github.com/yourusername/langchain-chatbot" target="_blank">View on GitHub</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-item" onclick="showProjectDetails(
+                    'Governance Web Portal and Rural Development Initiatives',
+                    'The main objective of this website is to digitally manage and display rural development activities, public services, government announcements, and MLA updates related to village-level work.',
+                    ['HTML', 'CSS', 'JavaScript', 'DevOps Tools', 'GitHub'],
+                    'https://github.com/yourusername/habit-tracker',
+                    'https://play.google.com/store/apps/details?id=com.your.habittracker'
+                )">
+                    <h3>Governance Web Portal and Rural Development Initiatives</h3>
+                    <p>This project is a multi-functional government web portal designed to serve the all district, Telangana. </p>
+                    <a href="https://github.com/yourusername/habit-tracker" target="_blank">View on GitHub</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-item" onclick="showProjectDetails(
+                    'AWS S3 Static Web Hosting',
+                    'Implemented Infrastructure as Code (IaC) using Terraform to automate the creation and configuration of AWS S3 buckets for static website hosting. The project demonstrates best practices in cloud resource provisioning and includes CI/CD pipeline integration for automated deployments.',
+                    ['Terraform', 'AWS S3', 'CI/CD', 'Infrastructure as Code', 'CloudFront'],
+                    'https://github.com/yourusername/aws-s3-static-web-hosting',
+                    'https://your-s3-website-url.com'
+                )">
+                    <h3>AWS S3 Static Web Hosting</h3>
+                    <p>Terraform project automating AWS S3 bucket creation for static web hosting.</p>
+                    <a href="https://github.com/yourusername/aws-s3-static-web-hosting" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Modal -->
+<div class="project-details" id="projectDetails">
+    <div class="project-details-content">
+        <span class="close-details" onclick="closeProjectDetails()">×</span>
+        <h3 id="projectTitle">Project Title</h3>
+        <p id="projectDescription">Project description will appear here.</p>
+        
+        <div class="project-tech" id="projectTech">
+            <!-- Technology pills will be inserted here -->
+        </div>
+        
+        <div class="project-links">
+            <a href="#" id="githubLink" class="primary" target="_blank">View on GitHub</a>
+            <a href="#" id="demoLink" class="secondary" target="_blank">Live Demo</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function showProjectDetails(title, description, techs, githubLink, demoLink) {
+    document.getElementById('projectTitle').innerText = title;
+    document.getElementById('projectDescription').innerText = description;
+    
+    const projectTech = document.getElementById('projectTech');
+    projectTech.innerHTML = '';
+    techs.forEach(tech => {
+        const pill = document.createElement('span');
+        pill.className = 'tech-pill';
+        pill.innerText = tech;
+        projectTech.appendChild(pill);
+    });
+    
+    document.getElementById('githubLink').href = githubLink;
+    document.getElementById('demoLink').href = demoLink;
+
+    document.getElementById('projectDetails').classList.add('active');
+}
+
+function closeProjectDetails() {
+    document.getElementById('projectDetails').classList.remove('active');
+}
+</script>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Narender Badavath. All rights reserved.</p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/narender-badavath-804b88294" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/narenderbadavath98" target="_blank">GitHub</a></li>
+                <li><a href="badavathnarender98@gmail.com">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        function showProjectDetails(title, description, technologies, githubUrl, demoUrl) {
+            document.getElementById('projectTitle').textContent = title;
+            document.getElementById('projectDescription').textContent = description;
+            
+            const techContainer = document.getElementById('projectTech');
+            techContainer.innerHTML = '';
+            technologies.forEach(tech => {
+                const pill = document.createElement('span');
+                pill.className = 'tech-pill';
+                pill.textContent = tech;
+                techContainer.appendChild(pill);
+            });
+            
+            document.getElementById('githubLink').href = githubUrl;
+            document.getElementById('demoLink').href = demoUrl;
+            
+            document.getElementById('projectDetails').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectDetails() {
+            document.getElementById('projectDetails').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside content
+        document.getElementById('projectDetails').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectDetails();
+            }
+        });
+    </script>
+
+
+</body></html>

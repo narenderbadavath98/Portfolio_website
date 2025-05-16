@@ -1,0 +1,102 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Narender Badavath</title>
+    <link rel="stylesheet" href="skills.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Narender Badavath</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <p>Here are some of the key skills I've mastered through my learning journey and projects:</p>
+            
+            <div class="skills-grid">
+                <div class="skill-item" onclick="showSkillDetails('Programming', 'Python, C++, JavaScript', '4+ years of experience building applications and solving complex problems with these languages. Specialized in Python for backend development and automation.')">
+                    <h3>Programming</h3>
+                    <p>Python, C++, JavaScript</p>
+                </div>
+                <div class="skill-item" onclick="showSkillDetails('Web Development', 'HTML, CSS, JavaScript, React, Django', 'Built 10+ responsive web applications with modern frameworks. Focus on performance and accessibility.')">
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript, React, Django</p>
+                </div>
+                <div class="skill-item" onclick="showSkillDetails('Full-Stack Developer', 'MongoDB, Express.js, React.js, and Node.js', 'Developed applications with modern frameworks. Focus on performance and accessibility.')">
+                    <h3>Full-Stack Developer</h3>
+                    <p>MongoDB, Express.js, React.js, and Node.js.</p>
+                </div>
+                <div class="skill-item" onclick="showSkillDetails('Machine Learning', 'Model Building, Data Exploration, Random Forests', 'Built and validated multiple ML models with 85%+ accuracy. Experience with TensorFlow, PyTorch, and scikit-learn.')">
+                    <h3>Machine Learning</h3>
+                    <p>Model Building, Data Exploration, Random Forests</p>
+                </div>
+                <div class="skill-item" onclick="showSkillDetails('DevOps Tools', 'Terraform, Kubernetes, AWS, GCP', 'Implemented CI/CD pipelines and deployed scalable infrastructure using IaC principles. Certified AWS Solutions Architect.')">
+                    <h3>DevOps Tools</h3>
+                    <p>Terraform, Kubernetes, AWS, Github, Git, Gitlab </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Details Modal -->
+    <div class="skill-details" id="skillDetails">
+        <div class="skill-details-content">
+            <span class="close-details" onclick="closeSkillDetails()">×</span>
+            <h3 id="detailTitle">Skill Title</h3>
+            <p id="detailTech">Technologies: </p>
+            <div id="detailDescription"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Narender Badavath. All rights reserved.</p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/narender-badavath-804b88294" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/narenderbadavath98" target="_blank">GitHub</a></li>
+                <li><a href="badavathnarender98@gmail.com">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        function showSkillDetails(title, technologies, description) {
+            document.getElementById('detailTitle').textContent = title;
+            document.getElementById('detailTech').textContent = 'Technologies: ' + technologies;
+            document.getElementById('detailDescription').innerHTML = '<p>' + description + '</p>';
+            document.getElementById('skillDetails').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSkillDetails() {
+            document.getElementById('skillDetails').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside content
+        document.getElementById('skillDetails').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSkillDetails();
+            }
+        });
+    </script>
+
+
+</body>
+</html>

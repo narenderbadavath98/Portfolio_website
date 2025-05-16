@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Narender</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <nav class="nav">
+        <div class="logo">Narender Badavath</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
+
+      <!-- ✅ IMAGE ON LEFT -->
+      <div class="hero-image">
+        <img src="nari pic.jpg" alt="Hero Image">
+      </div>
+
+      <!-- ✅ TEXT ON RIGHT -->
+      <div class="hero-text">
+        <h3>Hello, It's Me</h3>
+        <h1>Narender Badavath</h1>
+        <h3>And I'm a <span class="typing-highlight" id="typing"></span></h3>
+        <p>I'm a passionate <span style="font-weight: bold; color: #7721e8;">Full Stack Developer</span>,  specializing in both <span style="font-weight: bold; color: #7721e8;">Front-End and Back-End development</span>. With expertise in <span style="font-weight: bold; color: #7721e8;">React.js</span> for building dynamic user interfaces, and <span style="font-weight: bold; color: #7721e8;">Node.js </span> for crafting efficient server-side applications, I create seamless web experiences from start to finish. I also work with <span style="font-weight: bold; color: #7721e8;">Machine Learning</span> to build intelligent features that add real value to modern applications.</p>
+
+       <div class="social-icons"> 
+  <a href="https://www.linkedin.com/in/narender-badavath-804b88294" target="_blank" title="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+  
+  <a href="https://github.com/narenderbadavath98" target="_blank" title="GitHub">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://unstop.com/u/Narender573" target="_blank" title="Unstop">
+    <i class="fas fa-trophy"></i>
+  </a>
+
+</div>
+
+        <a href="Narender Badavath resume.docx" class="btn primary" download>Download CV</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Loader -->
+  <div class="loader loader-hidden">
+    <div class="loader-circle"></div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function () {
+      const loader = document.querySelector('.loader');
+      setTimeout(() => {
+        loader.classList.add('loader-hidden');
+      }, 1000);
+    });
+
+    const words = ["Front-End Developer", "Back-End Developer", "Full-Stack Developer", "Machine Learning",];
+    let wordIndex = 0;
+    let charIndex = 0;
+    const typingElement = document.getElementById("typing");
+
+    function type() {
+      if (charIndex < words[wordIndex].length) {
+        typingElement.textContent += words[wordIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 150);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 100);
+      } else {
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", type);
+  </script>
+
+</body>
+</html>
